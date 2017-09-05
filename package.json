@@ -1,5 +1,5 @@
 {
-  "name": "translation-cli",
+  "name": "octolation",
   "version": "1.0.0",
   "description": "Translation center for Gsheets",
   "main": "dist/index.js",
