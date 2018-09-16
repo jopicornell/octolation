@@ -9,7 +9,7 @@
     "build": "babel src --presets babel-preset-es2015 --out-dir lib"
   },
   "bin": {
-    "octolation": "./bin/octolation.js"
+    "octolation": "./bin/octolation"
   },
   "dependencies": {
     "commander": "^2.9.0",
