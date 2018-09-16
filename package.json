@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jasmine",
-    "build": "babel src --presets babel-preset-es2015 --out-dir lib"
+    "build": "babel src --presets babel-preset-es2015 --out-dir lib",
+    "octolation": "node ./bin/octolation import 628890708825-ssbaqsi6u1e4si2kc2o5tut4g1g0593n.apps.googleusercontent.com JB1SBoYjFkCt0IMG5YRDNnAY 190rRsi06eQGxkOzHH0QMaONpsfbiV3zeswDW3GDQEyk resosense /src"
   },
   "bin": {
     "octolation": "./bin/octolation"

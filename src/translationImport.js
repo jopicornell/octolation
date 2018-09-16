@@ -5,11 +5,14 @@ import GoogleSpreadsheet from './GoogleSpreadsheet';
 
 const splitLanguages = (data) => {
   const languagesMap = {};
-  const languagesList = data[0].slice(1); // array with langs, first column is "code"
+  const languagesList = data[0].slice(1).filter(String); // array with langs, first column is "code"
+  console.log(languagesList);
   languagesList.forEach((lang, index) => {
     languagesMap[lang] = unflat(data.slice(1).reduce((before, after) => {
       const row = before;
-      row[after[0]] = after[index + 1];
+      if (after[0]) {
+        row[after[0]] = after[index + 1];
+      }
       return row;
     }, {}));
   });
@@ -26,9 +29,9 @@ export default function translationImport(clientId, secret, spreadsheetId, sheet
         }
         return Promise.reject(err);
       }))
-    .then(() => googleSpreadsheet.readSpreadsheet(spreadsheetId, `${sheet}!A1:C`))
+    .then(() => googleSpreadsheet.readSpreadsheet(spreadsheetId, `${sheet}!A1:Z`))
     .then((spreadsheetData) => {
-      const languagesMap = splitLanguages(spreadsheetData.values);
+      const languagesMap = splitLanguages(spreadsheetData.data.values);
       return Promise.all(Object.keys(languagesMap)
         .map((lang) => {
           let contentTranslation = javascriptStringify(languagesMap[lang], null, 2);
