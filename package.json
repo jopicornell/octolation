@@ -1,12 +1,12 @@
 {
   "name": "octolation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Translation center for Gsheets",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "test": "jasmine",
-    "build": "babel lib --presets babel-preset-es2015 --out-file ./bin/octolation.js"
+    "build": "babel src --presets babel-preset-es2015 --out-dir lib"
   },
   "bin": {
     "octolation": "./bin/octolation.js"
