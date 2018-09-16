@@ -1,6 +1,6 @@
 {
   "name": "octolation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Translation center for Gsheets",
   "main": "dist/index.js",
   "license": "MIT",
