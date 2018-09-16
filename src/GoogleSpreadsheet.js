@@ -67,16 +67,11 @@ class GoogleSpreadsheet {
   }
 
   readSpreadsheet(spreadsheetId, range) {
-    return new Promise((resolve, reject) => sheets.spreadsheets.values.get({
+    return sheets.spreadsheets.values.get({
       auth: this.oauth2Client,
       spreadsheetId,
       range,
-    }, (err, res) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(res);
-    }));
+    });
   }
 
   writeSpreadsheet(spreadsheetId, range, values) {
