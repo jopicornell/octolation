@@ -19,14 +19,14 @@ const splitLanguages = (data) => {
 export default function translationImport(clientId, secret, spreadsheetId, sheet = 'Translations', folder) {
   const googleSpreadsheet = new GoogleSpreadsheet(secret, clientId);
   return googleSpreadsheet.authorize()
-    .then(() => googleSpreadsheet.readSpreadsheet(spreadsheetId, `${sheet}!A1:C`))
-    .then(spreadsheetData => fs.mkdir(`.${folder}/langs`)
+    .then(() => fs.mkdir(`.${folder}/langs`)
       .catch((err) => {
         if (err.code === 'EEXIST') {
-          return Promise.resolve(spreadsheetData);
+          return Promise.resolve();
         }
         return Promise.reject(err);
       }))
+    .then(() => googleSpreadsheet.readSpreadsheet(spreadsheetId, `${sheet}!A1:C`))
     .then((spreadsheetData) => {
       const languagesMap = splitLanguages(spreadsheetData.values);
       return Promise.all(Object.keys(languagesMap)
