@@ -1,6 +1,6 @@
 {
   "name": "octolation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Translation center for Gsheets",
   "main": "dist/index.js",
   "license": "MIT",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "commander": "^2.9.0",
+    "flat": "^4.1.0",
     "fs-extra": "^7.0.0",
     "google-auth-library": "^2.0.0",
     "googleapis": "^33.0.0",
@@ -20,8 +21,6 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.1.3",
     "babel-preset-env": "^1.4.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.24.1",
